@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Simone Luxe</title>
+  <style>
+    body {
+      background-color: #000;
+      color: #fff;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      text-align: center;
+      padding-top: 100px;
+    }
+
+    h1 {
+      font-size: 48px;
+      margin-bottom: 10px;
+    }
+
+    p {
+      font-size: 18px;
+      margin-bottom: 50px;
+      color: #ccc;
+    }
+
+    elevenlabs-convai {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 9999;
+    }
+  </style>
+</head>
+<body>
+  <h1>Simone Luxe</h1>
+  <p>Digital voice of culture. Tap in below.</p>
+
+  <!-- ELEVENLABS ORB -->
+  <elevenlabs-convai agent-id="uVmkRutPWjWXjgLRqqW0"></elevenlabs-convai>
+  <script src="https://unpkg.com/@elevenlabs/convai-widget-embed" async type="text/javascript"></script>
+
+  <!-- ORB TOOL: Navigate to URL -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const widget = document.querySelector('elevenlabs-convai');
+      if (widget) {
+        widget.addEventListener('elevenlabs-convai:call', (event) => {
+          event.detail.config.clientTools = {
+            navigate_to_url: ({ url }) => {
+              window.location.href = url;
+            }
+          };
+        });
+      }
+    });
+  </script>
+</body>
+</html>
