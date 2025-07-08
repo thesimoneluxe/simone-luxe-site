@@ -48,7 +48,7 @@
         widget.addEventListener('elevenlabs-convai:call', (event) => {
           event.detail.config.clientTools = {
             navigate_to_url: ({ url }) => {
-              window.location.href = url;
+              window.open(url, '_blank');
             }
           };
         });
